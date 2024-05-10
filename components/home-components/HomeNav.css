@@ -1,0 +1,6 @@
+
+@layer home {
+    .homeNav {
+        @apply bg-red-500;
+    }
+}

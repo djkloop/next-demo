@@ -12,12 +12,12 @@ import HomeNav from '@/components/home-components/HomeNav'
 export default function Home() {
   return (
     <main>
-      <header className='sticky flex justify-between top-0 py-2 px-6 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60'>
+      <header className='sticky flex justify-between top-0 py-4 px-6 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60'>
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
               <Link href="/" legacyBehavior passHref>
-                Game Box
+                游戏盒子
               </Link>
             </NavigationMenuItem>
           </NavigationMenuList>

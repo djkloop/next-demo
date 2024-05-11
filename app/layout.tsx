@@ -7,8 +7,8 @@ import { ReactQueryProvider } from '@/providers/ReactQueryProvider'
 import { ThemeProvider } from '@/providers/ThemeProvider'
 
 export const metadata: Metadata = {
-  title: 'Steam Store Demo',
-  description: 'A demo of the Steam Store',
+  title: 'Game Box',
+  description: 'A demo of the Game Box',
 }
 
 export default function RootLayout({
@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn('min-h-screen')}>
+      <body className={cn('min-h-screen overflow-hidden')}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

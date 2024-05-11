@@ -12,7 +12,7 @@ export default function HomeHeader() {
           <NavigationMenuList>
             <NavigationMenuItem>
               <Link href="/" legacyBehavior passHref>
-                Game Box
+                游戏爱折扣
               </Link>
             </NavigationMenuItem>
           </NavigationMenuList>

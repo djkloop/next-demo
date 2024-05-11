@@ -38,7 +38,7 @@ function MenuWrapper({ isTop = false, list, tag, isShowDivider = true }: { isTop
         <div className={cn('text-large font-bold flex items-center justify-center', [isTop ? 'mt-4' : 'mt-2'])}>{tag}</div>
         {
           list.map((item: any) => (
-            <li key={item.id} className='homeNavBoxContentItem gap-x-1'>
+            <li key={item.id} className='homeNavBoxContentItem'>
               {
                 item?.icon && (
                   <div className="w-[28px] h-[28px] flex items-center justify-start">

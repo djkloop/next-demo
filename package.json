@@ -23,7 +23,8 @@
     "react": "^18",
     "react-dom": "^18",
     "tailwind-merge": "^2.2.2",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "xgplayer": "^3.0.17"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.13.3",

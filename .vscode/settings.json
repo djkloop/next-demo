@@ -39,7 +39,7 @@
     "jsonc",
     "yaml",
     "toml",
-    "astro",
+    "astro"
   ],
   // Enable the ESlint flat config support
   "eslint.experimental.useFlatConfig": true,
@@ -81,6 +81,6 @@
     "jsonc",
     "yaml",
     "toml",
-    "astro",
+    "astro"
   ]
 }

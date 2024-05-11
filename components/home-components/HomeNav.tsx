@@ -10,8 +10,6 @@ import { RiSteamFill } from "../icon/RiSteamFill";
 import { RiXboxFill } from "../icon/RiXboxFill";
 import { RiSwitchFill } from "../icon/RiSwitchFill";
 import { RiPlaystationFill } from "../icon/RiPlaystationFill";
-import { SimpleIconsPlaystation4 } from "../icon/SimpleIconsPlaystation4";
-import { SimpleIconsPlaystation5 } from "../icon/SimpleIconsPlaystation5";
 
 
 function MenuLoading() {
@@ -128,7 +126,7 @@ function HomeNavMenu() {
 export default function HomeNav() {
 
   return (
-    <div className='absolute left-4 top-18 h-full'>
+    <div className='absolute z-20 left-4 top-[68px] h-full'>
       <div className='block homeNav w-[144px] relative'>
         <div className='homeNavBox'>
           <div className='homeNavBoxContent [scrollbar-width:none]'>

@@ -1,0 +1,10 @@
+.homePage {
+    align-items: stretch;
+    background-color: var(--x_6);
+    display: flex;
+    flex-grow: 1;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: relative;
+}

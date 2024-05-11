@@ -5,6 +5,13 @@ import { useSuspenseQuery } from '@tanstack/react-query';
 import { fetchHomeCategory } from '@/api/home/getCategory';
 import { Skeleton } from '../ui/skeleton';
 import { Suspense } from "react";
+import { cn } from "@/lib/utils";
+import { RiSteamFill } from "../icon/RiSteamFill";
+import { RiXboxFill } from "../icon/RiXboxFill";
+import { RiSwitchFill } from "../icon/RiSwitchFill";
+import { RiPlaystationFill } from "../icon/RiPlaystationFill";
+import { SimpleIconsPlaystation4 } from "../icon/SimpleIconsPlaystation4";
+import { SimpleIconsPlaystation5 } from "../icon/SimpleIconsPlaystation5";
 
 
 function MenuLoading() {
@@ -24,15 +31,22 @@ function MenuLoading() {
   )
 }
 
-function MenuWrapper({ list, tag, isShowDivider = true }: { list: any, tag: string, isShowDivider?: boolean }) {
+function MenuWrapper({ isTop = false, list, tag, isShowDivider = true }: { isTop?: boolean, list: any, tag: string, isShowDivider?: boolean }) {
   return (
     <>
-      <ul className='gap-4 flex flex-col'>
-        <div className='text-large font-bold flex items-center justify-center mt-4'>{tag}</div>
+      <ul className='gap-4 flex flex-col items-center justify-center'>
+        <div className={cn('text-large font-bold flex items-center justify-center', [isTop ? 'mt-4' : 'mt-2'])}>{tag}</div>
         {
           list.map((item: any) => (
-            <li key={item.id} className='homeNavBoxContentItem'>
-              {item.name}
+            <li key={item.id} className='homeNavBoxContentItem gap-x-1'>
+              {
+                item?.icon && (
+                  <div className="w-[28px] h-[28px] flex items-center justify-start">
+                    {item.icon}
+                  </div>
+                )
+              }
+              <span className={cn([item?.icon && 'min-w-12'])}>{item.name}</span>
             </li>
           ))
         }
@@ -58,30 +72,53 @@ function HomeNavMenu() {
     {
       id: 3,
       name: "Steam",
+      icon: <RiSteamFill fontSize={20} />
     },
     {
       id: 1,
       name: "Switch",
+      icon: <RiSwitchFill fontSize={20} />
     },
     {
       id: 2,
       name: "PS4",
+      icon: <RiPlaystationFill fontSize={20} />
     },
     {
       id: 6,
       name: "PS5",
+      icon: <RiPlaystationFill fontSize={20} />
     },
     {
       id: 4,
       name: "Xbox",
+      icon: <RiXboxFill fontSize={20} />
     },
   ]
+  // 打折信息
+  const discountInfoMenu = [
+    {
+      id: 0,
+      name: "正在打折",
+    },
+    {
+      id: 1,
+      name: "历史新低",
+    },
+    {
+      id: 3,
+      name: "任意史低",
+    }
+  ]
   const [data] = useGetHomeCategoryQuery();
+  // 游戏分类
   const gameCategoryMenu = data?.data?.[0]?.data?.map((x: string, index: number) => ({ id: x + '_' + index, name: x })) ?? []
+  
 
   return (
     <>
-      <MenuWrapper tag='游戏平台' list={platformMenu} />
+      <MenuWrapper tag='游戏平台' isTop={true} list={platformMenu}  />
+      <MenuWrapper tag='折扣力度' list={discountInfoMenu}  />
       <MenuWrapper tag='游戏分类' list={gameCategoryMenu} />
     </>
   )

@@ -28,7 +28,7 @@ function useQueryDiscountGameList() {
 
 function useQueryProductDetail(id?:number) {
   const query = useQuery({
-    queryKey: ['homeDiscountProduct', id],
+    queryKey: ['homeDiscountProduct'],
     queryFn: () => fetchHomeDiscountProductWithId({id}),
     enabled: false
   })
@@ -49,20 +49,26 @@ export default function HomePageTop() {
 
   useEffect(() => {
     const firstData = data?.data?.[0]
-    setSpuId(firstData?.spu_id)
-    productDetailQuery.refetch()
+    if (firstData) {
+      setSpuId(firstData?.spu_id)
+      setTimeout(() => {
+        productDetailQuery.refetch()
+      }, 100)
+    }
   }, [data])
 
   useEffect(() => {
     const video_url = productDetailData?.data?.movie?.[0]?.video_url ?? ""
-     new SimplePlayer({
-      id: "activeVideo",
-      autoplayMuted: true,
-      autoplay: true,
-      fluid: true,
-      loop: true,
-      url: video_url
-    })
+    if (video_url) {
+      new SimplePlayer({
+        id: "activeVideo",
+        autoplayMuted: true,
+        autoplay: true,
+        fluid: true,
+        loop: true,
+        url: video_url
+      })
+    }
   }, [productDetailData])
 
   return (
